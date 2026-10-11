@@ -1,0 +1,548 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+
+/* Universal CSS reset for consistent sizing across browsers */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Page body styling and full height layout */
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. APP NAVIGATION HEADER
+   ========================================================================== */
+
+/* Header container styling */
+.app-header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #007bff;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Flexbox wrapper for header alignment */
+.header-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Header right side elements container */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Brand logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1a2a3a;
+  transition: transform 0.2s ease;
+}
+
+/* Logo hover effect */
+.logo:hover {
+  transform: scale(1.02);
+}
+
+/* Logo book icon size */
+.logo-icon {
+  font-size: 26px;
+}
+
+/* Logo primary color highlight */
+.logo-text span {
+  color: #007bff;
+}
+
+/* Live system status indicator badge */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #28a745;
+  font-weight: 600;
+  background: #e8f5e9;
+  padding: 5px 12px;
+  border-radius: 15px;
+  border: 1px solid #c8e6c9;
+}
+
+/* Glowing green dot for live status */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px #28a745;
+}
+
+/* Secondary header badge styling */
+.header-badge {
+  background-color: #eef4ff;
+  color: #007bff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #cce0ff;
+  transition: all 0.2s ease;
+}
+
+/* Header badge hover effect */
+.header-badge:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* ==========================================================================
+   3. PAGE GRID LAYOUT
+   ========================================================================== */
+
+/* Three-column CSS Grid container for main layout */
+.page-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  margin: 35px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 290px 1fr 290px;
+  gap: 25px;
+  flex: 1;
+}
+
+/* ==========================================================================
+   4. MAIN DICTIONARY CONTAINER & SEARCH FORM
+   ========================================================================== */
+
+/* Central container for dictionary search */
+.container {
+  background: #ffffff;
+  width: 100%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  align-self: start;
+}
+
+/* Main title styling */
+h1 {
+  margin-bottom: 10px;
+  color: #1a2a3a;
+}
+
+/* Description text styling */
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Search bar layout wrapper */
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+/* Text input control styling */
+input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+/* Input focus effect */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Search action button styling */
+button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Button hover state */
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Button active/clicked state */
+button:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================================================
+   5. SEARCH RESULTS & API OUTPUT STYLES
+   ========================================================================== */
+
+/* Results container with smooth fade-in animation */
+.results-container {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Keyframes animation for results loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Word title section styling */
+.word-header {
+  margin-bottom: 15px;
+}
+
+/* Searched word heading style */
+.word-header h2 {
+  font-size: 28px;
+  color: #007bff;
+  text-transform: capitalize;
+}
+
+/* Phonetics pronunciation text */
+.phonetics {
+  font-style: italic;
+  color: #777;
+}
+
+/* Block wrapper for meaning output */
+.meaning-block {
+  margin-bottom: 15px;
+}
+
+/* Part of speech tag (Noun, Verb, etc.) */
+.part-of-speech {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #555;
+  background: #eef4ff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+/* Word definition text formatting */
+.definition {
+  line-height: 1.5;
+}
+
+/* Error and missing word message styling */
+.error-msg {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   6. SIDEBAR CARDS & HOVER INTERACTIONS
+   ========================================================================== */
+
+/* Sidebar layout container */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual card container styling */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+/* Card elevation effect on hover */
+.hover-card {
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+  transform: translateY(-4px);
+  border-color: #007bff;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.12);
+}
+
+/* Sidebar section headers */
+.sidebar-card h3 {
+  font-size: 15px;
+  color: #1a2a3a;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+/* Grammar guide vertical list */
+.guide-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual grammar guide item styling with hover animation */
+.hover-item {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.hover-item:hover {
+  background-color: #f8fafc;
+  border-left-color: #007bff;
+  padding-left: 12px;
+}
+
+/* Grammar explanation paragraph */
+.guide-item p {
+  font-size: 12px;
+  margin-bottom: 0;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* Color-coded grammatical badges */
+.badge {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+/* Part of speech specific color palettes */
+.badge.noun { background: #e0f2fe; color: #0369a1; }
+.badge.verb { background: #dcfce7; color: #15803d; }
+.badge.adj { background: #fef3c7; color: #b45309; }
+.badge.adv { background: #f3e8ff; color: #6b21a8; }
+
+/* Pronunciation and trivia paragraph styling */
+.pronounce-info, .fact-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 0;
+}
+
+/* Code element styling for phonetics examples */
+.pronounce-info code {
+  background: #f1f5f9;
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #007bff;
+}
+
+/* Sidebar sub-caption text */
+.sidebar-subtext {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Tags container for quick search suggestions */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Individual tag styling */
+.tag {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #495057;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Tag interactive hover state */
+.hover-tag:hover {
+  background: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25);
+}
+
+/* Features list styling */
+.features-list {
+  list-style: none;
+  font-size: 12px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.features-list li {
+  line-height: 1.4;
+}
+
+/* API info card paragraph */
+.info-card p {
+  font-size: 13px;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. PAGE FOOTER
+   ========================================================================== */
+
+/* Footer bar layout and borders */
+.app-footer {
+  background: #ffffff;
+  border-top: 1px solid #e9ecef;
+  padding: 20px 40px;
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Copyright text style */
+.app-footer p {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+
+/* API attribution text style */
+.api-credit {
+  color: #888;
+  font-size: 12px !important;
+}
+
+/* ==========================================================================
+   8. MEDIA QUERIES (RESPONSIVE MOBILE DESIGN)
+   ========================================================================== */
+
+/* Tablet resolution adjustments (e.g. iPads) */
+@media (max-width: 992px) {
+  /* Switch grid layout from 3 columns to single column */
+  .page-wrapper {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+  }
+
+  /* Reorder sidebars below main search box */
+  .sidebar {
+    order: 2;
+  }
+
+  .container {
+    order: 1;
+  }
+
+  /* Hide reference badge on smaller screens */
+  .header-badge {
+    display: none;
+  }
+}
+
+/* Mobile smartphone resolution adjustments (e.g. iPhones, Android) */
+@media (max-width: 600px) {
+  /* Compact header padding */
+  .app-header {
+    padding: 12px 20px;
+  }
+
+  /* Header flex orientation for mobile */
+  .header-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Scale down logo text for small screens */
+  .logo-text {
+    font-size: 18px;
+  }
+
+  /* Compact status badge on mobile */
+  .status-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  /* Compact container padding for mobile screen fit */
+  .page-wrapper {
+    padding: 0 12px;
+    margin: 15px auto;
+    gap: 15px;
+  }
+
+  .container {
+    padding: 20px 15px;
+  }
+
+  /* Stack input and button vertically on small screens */
+  .search-box {
+    flex-direction: column;
+  }
+
+  /* Full width button for touch targets */
+  button {
+    width: 100%;
+  }
+
+  /* Stack footer items vertically on mobile */
+  .app-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+    text-align: center;
+  }
+}

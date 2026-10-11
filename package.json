@@ -1,0 +1,18 @@
+{
+  "name": "assign4_api_felipe_alves",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server --baseDir=\"mistery\""
+  },
+  "keywords": [],
+  "author": "Felipe Alves",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "lite": "^4.0.5",
+    "lite-server": "^2.6.1",
+    "server": "^1.0.42"
+  }
+}

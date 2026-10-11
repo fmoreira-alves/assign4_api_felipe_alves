@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Character encoding and responsive viewport settings -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Document title -->
+  <title>Felipe's Dictionary</title>
+  
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- ========================================== -->
+  <!-- APP HEADER SECTION                         -->
+  <!-- ========================================== -->
+  <header class="app-header">
+    <div class="header-content">
+      <!-- App branding and logo -->
+      <div class="logo">
+        <span class="logo-icon">📚</span>
+        <span class="logo-text">Felipe's <span>Dictionary</span></span>
+      </div>
+      
+      <!-- Right-side header indicators -->
+      <div class="header-right">
+        <!-- Live status indicator -->
+        <div class="status-badge">
+          <span class="status-dot"></span> System Ready
+        </div>
+        <!-- Edition badge -->
+        <div class="header-badge">
+          <span>Collegiate Reference Edition</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- MAIN PAGE LAYOUT GRID                      -->
+  <!-- ========================================== -->
+  <div class="page-wrapper">
+    
+    <!-- ========================================== -->
+    <!-- LEFT SIDEBAR: Educational Guides           -->
+    <!-- ========================================== -->
+    <aside class="sidebar sidebar-left">
+      
+      <!-- Parts of speech reference card -->
+      <div class="card sidebar-card hover-card">
+        <h3>📖 Parts of Speech Guide</h3>
+        <div class="guide-list">
+          <!-- Noun explanation -->
+          <div class="guide-item hover-item">
+            <span class="badge noun">noun</span>
+            <p>Person, place, thing, or idea.</p>
+          </div>
+          <!-- Verb explanation -->
+          <div class="guide-item hover-item">
+            <span class="badge verb">verb</span>
+            <p>Action, state, or occurrence.</p>
+          </div>
+          <!-- Adjective explanation -->
+          <div class="guide-item hover-item">
+            <span class="badge adj">adjective</span>
+            <p>Word that describes a noun.</p>
+          </div>
+          <!-- Adverb explanation -->
+          <div class="guide-item hover-item">
+            <span class="badge adv">adverb</span>
+            <p>Modifies a verb, adj, or adverb.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phonetic pronunciation key card -->
+      <div class="card sidebar-card hover-card">
+        <h3>🗣️ Pronunciation Key</h3>
+        <p class="pronounce-info">
+          Phonetics are shown inside slashes (e.g. <code>\ ˈhe-lō \</code>) based on standard American pronunciation symbols.
+        </p>
+      </div>
+
+      <!-- Linguistic trivia card -->
+      <div class="card sidebar-card hover-card">
+        <h3>💡 Did You Know?</h3>
+        <p class="fact-text">
+          The most complex word in the English language is <strong>"set"</strong>, with over 430 distinct definitions in the Oxford English Dictionary!
+        </p>
+      </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- MAIN CONTENT AREA: Dictionary Search Box   -->
+    <!-- ========================================== -->
+    <main class="container">
+      <!-- Section header text -->
+      <header>
+        <h1>Dictionary Finder</h1>
+        <p>Search for any English word to get its definition, part of speech, and phonetic spelling.</p>
+      </header>
+
+      <!-- Input controls section -->
+      <section class="search-box">
+        <input type="text" id="wordInput" placeholder="Enter a word (e.g., hello, design)...">
+        <button id="searchBtn">Search</button>
+      </section>
+
+      <!-- Results section where JavaScript renders API output -->
+      <section id="results" class="results-container">
+        <!-- API results will be inserted here dynamically -->
+      </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- RIGHT SIDEBAR: Suggestions & Features      -->
+    <!-- ========================================== -->
+    <aside class="sidebar sidebar-right">
+      
+      <!-- Quick search terms suggestions -->
+      <div class="card sidebar-card hover-card">
+        <h3>🔍 Quick Word Suggestions</h3>
+        <p class="sidebar-subtext">Common academic terms to explore:</p>
+        <div class="tags-container">
+          <span class="tag hover-tag">vocabulary</span>
+          <span class="tag hover-tag">grammar</span>
+          <span class="tag hover-tag">definition</span>
+          <span class="tag hover-tag">etymology</span>
+          <span class="tag hover-tag">synonym</span>
+          <span class="tag hover-tag">phonetics</span>
+          <span class="tag hover-tag">linguistics</span>
+        </div>
+      </div>
+
+      <!-- Overview of dictionary features -->
+      <div class="card sidebar-card hover-card">
+        <h3>✨ Dictionary Features</h3>
+        <ul class="features-list">
+          <li>📌 <strong>Phonetic Guide:</strong> Learn pronunciation symbols.</li>
+          <li>🏷️ <strong>Part of Speech:</strong> Categorize nouns, verbs & more.</li>
+          <li>⚡ <strong>Live Search:</strong> Instant Merriam-Webster fetch.</li>
+        </ul>
+      </div>
+
+      <!-- API attribution card -->
+      <div class="card sidebar-card hover-card info-card">
+        <h3>ℹ️ About This Dictionary</h3>
+        <p>This web application queries the Merriam-Webster Collegiate database to provide exact definitions and phonetic readings.</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- FOOTER SECTION                             -->
+  <!-- ========================================== -->
+  <footer class="app-footer">
+    <p>© 2026 <strong>Felipe's Dictionary App</strong>. Developed for academic demonstration.</p>
+    <p class="api-credit">Powered by Merriam-Webster Dictionary API</p>
+  </footer>
+
+  <!-- External JavaScript file inclusion -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
